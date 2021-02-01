@@ -22,9 +22,10 @@ class AuthCheckTest implements MiddlewareInterface
 {
     public function process(Request $request, callable $next) : Response
     {
+        $path = $request->path();
         $session = $request->session();
-        if (!$session->get('userinfo')) {
-            return redirect('/user/login');
+        if (!$session->get('userinfo') && ($path !== '/auth-login')) {
+            return view('login');
         }
         return $next($request);
     }

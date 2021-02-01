@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/select2/css/select2.min.css">
+    <link rel="stylesheet" href="/select2theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="/css/adminlte.min.css">
+    <title>数据处理脚本</title>
+
+</head>
+<body style="min-width: 1366px">
+<div class="row" style="margin-top: 100px">
+    <div class="col-md-8 offset-2">
+        <div class="callout callout-info">
+            <h5>暂时仅支持标准差</h5>
+        </div>
+    </div>
+    <div class="col-md-6 offset-2">
+        <form method="post" action="/action/sd">
+            <div class="card card-info">
+                <div class="card-header">标准差   <span style="font-size: 11px;">tyxy2020 data2020</span></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label>统计字段</label>
+                                <div class="select2-info">
+                                    <select class="select2" name="column" multiple="multiple" data-placeholder="选择统计字段" data-dropdown-css-class="select2-info" style="width: 100%;">
+                                        {% for name in data %}
+                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>一级分类</label>
+                                <div class="select2-info">
+                                    <select class="select2" name="category_1" data-dropdown-css-class="select2-info" style="width: 100%;">
+                                        {% for name in data %}
+                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>二级分类</label>
+                                <div class="select2-info">
+                                    <select class="select2" name="category_2" data-dropdown-css-class="select2-info" style="width: 100%;">
+                                        {% for name in data %}
+                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info">统计</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+        <div class="card card-info">
+            <div class="card-header">历史查询</div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+<script src="/select2/js/select2.full.js"></script>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+    })
+</script>
+</html>

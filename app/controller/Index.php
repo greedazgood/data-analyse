@@ -1,18 +1,43 @@
 <?php
 namespace app\controller;
 
+use support\Db;
 use support\Request;
 
 class Index
 {
     public function index(Request $request)
     {
-        return response('hello webman');
+        $name = Db::connection('data')
+            ->table('INFORMATION_SCHEMA.Columns')
+            ->select('column_name','column_comment')
+            ->where('table_name','data2020')
+            ->get();
+        return view('index',['data'=>$name]);
     }
 
-    public function view(Request $request)
+    public function login(Request $request)
     {
-        return view('index/view', ['name' => 'webman']);
+        $session = $request->session();
+        $username = $request->post('username');
+        $password = $request->post('password');
+        if ($session->get('userinfo')){
+            return redirect('/');
+        }
+        if ($username){
+            $query = [
+                'username' => $username,
+                'password' => md5($password)
+            ];
+            $user = Db::table('users')->where($query)->first();
+            if ($user){
+                $session = $request->session();
+                $session->set('userinfo',$user->id);
+                return redirect('/');
+            }
+            return view('login');
+        }
+        return view('login');
     }
 
     public function json(Request $request)
@@ -29,5 +54,5 @@ class Index
         }
         return json(['code' => 1, 'msg' => 'file not found']);
     }
-    
+
 }

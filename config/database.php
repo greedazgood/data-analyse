@@ -20,7 +20,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', '106.14.78.28'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
@@ -32,7 +32,20 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-
+        'data' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_DATA', '106.14.78.28'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE_DATA', 'forge'),
+            'username' => env('DB_USERNAME_DATA', 'forge'),
+            'password' => env('DB_PASSWORD_DATA', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', ''),
