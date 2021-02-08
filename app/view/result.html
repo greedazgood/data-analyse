@@ -12,21 +12,47 @@
 
 </head>
 <body style="min-width: 1366px">
-<div class="row" style="margin-top: 100px">
+<div class="row" style="margin-top: 30px">
     <div class="col-md-8 offset-2">
-        <div class="callout callout-info">
-            <h5>暂时仅支持标准差</h5>
-        </div>
-    </div>
-    <div class="col-md-6 offset-2">
-        <div class="card card-info">
-            <div class="card-header">查询结构</div>
-            <div class="card-body"></div>
-        </div>
-    </div>
-    <div class="col-md-2">
-        <div class="card card-info">
-            <div class="card-header">历史查询</div>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">查询结果</h3>
+
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                    <tr>
+                        <th>项目</th>
+                        <th>一级分类{{ category_1 }}</th>
+                        <th>二级分类{{ category_2 }}</th>
+                        <th>平均值</th>
+                        <th>标准差</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for list in data %}
+                    <tr>
+                        <td>{{ list.column }}</td>
+                        <td>{{ list.category_1_value }}</td>
+                        <td>{{ list.category_2_value }}</td>
+                        <td>{{ list.avg }}</td>
+                        <td>{{ list.sd }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

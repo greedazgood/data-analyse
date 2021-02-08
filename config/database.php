@@ -20,7 +20,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '106.14.78.28'),
+            'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
@@ -34,7 +34,7 @@ return [
         ],
         'data' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST_DATA', '106.14.78.28'),
+            'host' => env('DB_HOST_DATA', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE_DATA', 'forge'),
             'username' => env('DB_USERNAME_DATA', 'forge'),

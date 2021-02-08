@@ -30,7 +30,7 @@
                                 <div class="select2-info">
                                     <select class="select2" name="column" multiple="multiple" data-placeholder="选择统计字段" data-dropdown-css-class="select2-info" style="width: 100%;">
                                         {% for name in data %}
-                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        <option value="{{ name.COLUMN_NAME }}">{{ name.COLUMN_NAME }}({{ name.COLUMN_COMMENT }})</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -40,7 +40,7 @@
                                 <div class="select2-info">
                                     <select class="select2" name="category_1" data-dropdown-css-class="select2-info" style="width: 100%;">
                                         {% for name in data %}
-                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        <option value="{{ name.COLUMN_NAME }}">{{ name.COLUMN_NAME }}({{ name.COLUMN_COMMENT }})</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -50,7 +50,7 @@
                                 <div class="select2-info">
                                     <select class="select2" name="category_2" data-dropdown-css-class="select2-info" style="width: 100%;">
                                         {% for name in data %}
-                                        <option value="{{ name.column_name }}">{{ name.column_name }}({{ name.column_comment }})</option>
+                                        <option value="{{ name.COLUMN_NAME }}">{{ name.COLUMN_NAME }}({{ name.COLUMN_COMMENT }})</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -60,6 +60,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info">统计</button>
+                    <a class="btn btn-info float-right"  href="/update">更新</a>
                 </div>
             </div>
         </form>

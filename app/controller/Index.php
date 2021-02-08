@@ -10,8 +10,8 @@ class Index
     {
         $name = Db::connection('data')
             ->table('INFORMATION_SCHEMA.Columns')
-            ->select('column_name','column_comment')
-            ->where('table_name','data2020')
+            ->select('COLUMN_NAME','COLUMN_COMMENT')
+            ->where('TABLE_NAME','data2020')
             ->get();
         return view('index',['data'=>$name]);
     }

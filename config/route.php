@@ -18,3 +18,4 @@ use Webman\Route;
 
 Route::post('/auth-login','app\controller\Index@login');
 Route::get('/','app\controller\Index@index');
+Route::get('/update','app\controller\Action@update');
